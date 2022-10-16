@@ -17,7 +17,5 @@ class ajax extends CI_Controller {
                 echo  ""; // no result found
             }
     }
-
-    
 }
 ?>

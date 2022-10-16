@@ -21,37 +21,11 @@ class Scroll_pagination extends CI_Controller {
         <div class="post_data">
         <h3 class="text-danger">'.$row->title.'</h3>
         <p>'.$row->body.'</p>
-        <a href ="'.base_url().'posts/'.$row->slug.'"><div>details</div></a>
         </div>
         ';
     }
     }
     echo $output;
     }
-
-    
-
-    function search()
-    {
-        $output = '';
-        $this->load->model('scroll_pagination_model');
-        $search_data = $this->input->post('query');
-        $data = $this->scroll_pagination_model->search_data($search_data);
-    if($data !=null)
-    {
-        foreach($data->result() as $row)
-    {
-        $output .= '
-        <div class="post_data">
-        <h3 class="text-danger">'.$row->title.'</h3>
-        <p>'.$row->body.'</p>
-        <a href ="'.base_url().'posts/'.$row->slug.'"><div>details</div></a>
-        </div>
-        ';
-    }
-    }
-    echo $output;
-    }
-    
 
 }
