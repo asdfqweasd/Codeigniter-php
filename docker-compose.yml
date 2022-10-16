@@ -6,7 +6,7 @@ services:
         image: mysql:5.7
         volumes:
          - database:/var/lib/mysql
-        container_name: mysql
+        container_name: codeigniter-sql
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: MyDBRoot123
@@ -18,7 +18,7 @@ services:
 
 
     myphp:
-        container_name: myphp
+        container_name: codeigniter-php
         expose:
           - "9000"
         volumes:
@@ -33,7 +33,7 @@ services:
 
     mynginx:
         image: nginx:latest
-        container_name: mynginx
+        container_name: codeigniter-nginx
         ports: 
           - "8080:80"
         depends_on:
@@ -46,7 +46,7 @@ services:
         
     phpMyAdmin:
         image: phpmyadmin/phpmyadmin
-        container_name: phpMyAdmin
+        container_name: codeigniter-phpmyadmin
         ports:
           - "8082:80"
         environment:
