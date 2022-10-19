@@ -40,7 +40,7 @@ services:
           - myphp
         volumes:
           - $PWD/docker/mynginx/nginx.ini:/etc/nginx/conf.d/default.conf
-          - $PWD/docker/mynginx:/var/www/html
+          - $PWD/application:/var/www/html
         networks:
           - mynet
         
