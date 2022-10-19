@@ -21,12 +21,13 @@ services:
         container_name: codeigniter-php
         expose:
           - "9000"
+        working_dir: /var/www/
         volumes:
-          - $PWD/docker/myphp:/var/www/html
+          - $PWD/src/:/var/www/
         depends_on:
           - mysql
         build: 
-            context: './docker/myphp'
+            context: './src/docker/myphp'
             dockerfile: dockerfile 
         networks:
           - mynet
@@ -39,8 +40,8 @@ services:
         depends_on:
           - myphp
         volumes:
-          - $PWD/docker/mynginx/nginx.ini:/etc/nginx/conf.d/default.conf
-          - $PWD/application:/var/www/html
+          - $PWD/src/docker/mynginx/nginx.ini:/etc/nginx/conf.d/default.conf
+          - $PWD/src/:/var/www/
         networks:
           - mynet
         
