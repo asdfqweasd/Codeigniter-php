@@ -23,11 +23,11 @@ services:
           - "9000"
         working_dir: /var/www/
         volumes:
-          - $PWD/application/:/var/www/
+          - ./application/:/var/www/
         depends_on:
           - mysql
         build: 
-            context: './docker/myphp'
+            context: './docker/myphp/'
             dockerfile: dockerfile 
         networks:
           - mynet
@@ -39,9 +39,10 @@ services:
           - "8080:80"
         depends_on:
           - myphp
+          - mysql
         volumes:
-          - $PWD/docker/mynginx/nginx.ini:/etc/nginx/conf.d/default.conf
-          - $PWD/:/var/www/
+          - ./docker/mynginx/nginx.ini:/etc/nginx/conf.d/default.conf
+          - code:/var/www/
         networks:
           - mynet
         
@@ -57,6 +58,7 @@ services:
 
 volumes:
     database: {}
+    code:
 
 networks:
     mynet:
