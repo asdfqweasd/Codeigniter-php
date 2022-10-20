@@ -55,15 +55,15 @@ services:
     #     networks:
     #       - mynet
         
-    phpMyAdmin:
-        image: phpmyadmin/phpmyadmin
-        container_name: codeigniter-phpmyadmin
-        ports:
-          - "8188:80"
-        environment:
-            PMA_HOST: mysql
-        networks:
-          - mynet
+    # phpMyAdmin:
+    #     image: phpmyadmin/phpmyadmin
+    #     container_name: codeigniter-phpmyadmin
+    #     ports:
+    #       - "8188:80"
+    #     environment:
+    #         PMA_HOST: mysql
+    #     networks:
+    #       - mynet
 
 volumes:
     database: {}
