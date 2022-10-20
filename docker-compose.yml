@@ -26,20 +26,20 @@ services:
           - mynet
 
 
-    myphp:
-        container_name: codeigniter-php
-        expose:
-          - "9000"
-        working_dir: /var/www/
-        volumes:
-          - ./src:/var/www/
-        depends_on:
-          - mysql
-        build: 
-            context: './src/docker/myphp/'
-            dockerfile: dockerfile 
-        networks:
-          - mynet
+    # myphp:
+    #     container_name: codeigniter-php
+    #     expose:
+    #       - "9000"
+    #     working_dir: /var/www/
+    #     volumes:
+    #       - ./src:/var/www/
+    #     depends_on:
+    #       - mysql
+    #     build: 
+    #         context: './src/docker/myphp/'
+    #         dockerfile: dockerfile 
+    #     networks:
+    #       - mynet
 
     # mynginx:
     #     image: nginx:latest
